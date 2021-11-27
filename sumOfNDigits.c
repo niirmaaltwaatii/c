@@ -1,6 +1,5 @@
 #include<stdio.h>
-int main()
-{
+int main(){
     int number, sum=0, i, n, count=0, num;
     
     printf("Enter a Number: ");
