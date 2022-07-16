@@ -1,0 +1,93 @@
+#include <stdio.h>
+
+int n = 2;
+
+void join(int a[][n], int b[][n]);
+void meet(int a[][n], int b[][n]);
+void product(int a[][n], int b[][n]);
+
+int main(){
+	printf("Enter Size for Matrices : ");
+	scanf("%d",&n);
+	int A[n][n];
+	int B[n][n];
+	int i,j,sum;
+    printf("Enter elements of 1st matrix : \n");
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            scanf("%d",&A[i][j]);
+        }
+        printf("\n");
+	}
+	printf("Enter elements of 2nd matrix :\n");
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            scanf("%d",&B[i][j]);
+        }
+        printf("\n");
+	}
+	join(A , B);
+	meet(A, B);
+	product(A, B);
+}
+
+void join(int A[n][n], int B[n][n]){
+	int C[n][n];
+	int i, j , sum;
+	printf("join :\n");
+	for(i=0;i<n;i++){
+    	for(j=0;j<n;j++){
+    		sum =0;
+        	sum=A[i][j]+B[i][j];
+        	C[i][j] = sum;
+        	if(sum>1){
+            	C[i][j]=1;
+        	}
+
+        	printf("%d\t", C[i][j]);
+
+        }
+        printf("\n");
+    }
+}
+
+void meet(int A[n][n], int B[n][n]){
+	int C[n][n];
+	int i, j , sum;
+	printf("Meet :\n");
+	for(i=0;i<n;i++){
+    	for(j=0;j<n;j++){
+    		if(A[i][j]&&B[i][j]==1){
+                C[i][j]=1;
+            }
+            else
+            	C[i][j]=0;
+        	printf("%d\t", C[i][j]);
+
+        }
+        printf("\n");
+    }
+}
+
+void product(int A[n][n], int B[n][n]){
+	int c[n][n];
+	int i, j,k , sum;
+	printf("Boolean product :\n");
+	for(i=0;i<n;i++){
+    	for(j=0;j<n;j++){
+    		
+    		c[i][j] =0;
+    			for(k = 0; k < n; k++){
+    				c[i][j] += A[i][k] * B[k][j];
+				}
+			
+        	if(c[i][j]>1){
+            	c[i][j]=1;
+        	}
+
+        	printf("%d\t", c[i][j]);
+
+        }
+        printf("\n");
+    }
+}
