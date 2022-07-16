@@ -1,0 +1,65 @@
+#include<stdio.h>
+float max(float a,float b);
+float min(float a,float b);
+float comp(float a);
+int main(){
+   float arr1[5];
+   float arr2[5];
+   
+    for(int i=0;i<5;i++){
+    printf("Enter the membership value for first set A : ");
+        scanf("%f",&arr1[i]);
+         }
+    for(int i=0;i<5;i++){
+        printf("Enter the membership  value for second set B :");
+        scanf("%f",&arr2[i]);
+    }
+     printf("The union of two set is :\n {");
+     for(int i=0;i<5;i++){
+         float j;
+         j=max(arr1[i],arr2[i]);
+         printf("%f",j);
+         printf(",");
+     }
+     printf("}\n");
+    printf("The intersection of two set is :\n {");
+     for(int i=0;i<5;i++){
+         float j;
+         j=min(arr1[i],arr2[i]);
+         printf("%f",j);
+         printf(",");
+     }
+     printf("}\n"); 
+printf("The complement of  set A is :\n {");
+     for(int i=0;i<5;i++){
+         float j;
+         j=comp(arr1[i]);
+         printf("%f",j);
+         printf(",");
+     }
+     printf("}\n"); 
+printf("The complement  of  set B is :\n {");
+     for(int i=0;i<5;i++){
+         float j;
+         j=comp(arr2[i]);
+         printf("%f",j);
+         printf(",");
+     }
+     printf("}\n");
+     return 0;
+}
+float max(float a,float b){
+    if(a>b){
+        return a;
+    }
+    return b;
+}
+float min(float a,float b){
+    if(a<b){
+        return a;
+    }
+    return b;
+}
+float comp(float a){
+    return 1-a;
+}
